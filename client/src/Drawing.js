@@ -8,10 +8,10 @@ class Drawing extends Component {
   };
 
   componentDidMount() {
-    subscribeToDrawingLines(this.props.drawing.id, line => {
+    subscribeToDrawingLines(this.props.drawing.id, linesEvent => {
       this.setState(prevState => {
         return {
-          lines: [...prevState.lines, line]
+          lines: [...prevState.lines, ...linesEvent.lines]
         };
       });
     });
